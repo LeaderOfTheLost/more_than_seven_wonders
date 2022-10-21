@@ -1,0 +1,29 @@
+{
+  "name": "more_than_seven_wonders",
+  "version": "1.0.0",
+  "description": "<img src=\"./images/tiny-globe.jpg\" width =\"400px\">",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeaderOfTheLost/more_than_seven_wonders.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeaderOfTheLost/more_than_seven_wonders/issues"
+  },
+  "homepage": "https://github.com/LeaderOfTheLost/more_than_seven_wonders#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.6.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
