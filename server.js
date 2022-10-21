@@ -30,14 +30,15 @@ app.post('/wonders', async (req, res) => {
 //Review Routes
 //Read all reviews --> GET
 app.get('/reviews', async (req, res) => {
-  let allReviews = await Review.find(req.body)
+  let allReviews = await Review.find({})
   res.json(allReviews)
 })
 
 //Create review Route --> POST
 app.post('/reviews', async (req, res) => {
-  let createReview = Review.create(req.body)
-  res.json(createReview)
+  let testReviewId = '6352beb79420b7470d7f0f10'
+  let createdReview = Review.create(req.body)
+  res.json(createdReview)
 })
 
 app.listen(PORT, () => {
