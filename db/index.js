@@ -1,9 +1,7 @@
 const mongoose = require('mongoose')
 
 mongoose
-  .connect(
-    'mongodb+srv://LeaderOfTheLost:DCnumber8@generalassemblycluster0.whwjvp6.mongodb.net/sevenWondersDB'
-  )
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('Successful connection to MongoDB')
   })

@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/LeaderOfTheLost/more_than_seven_wonders#readme",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^6.6.6"
   },
