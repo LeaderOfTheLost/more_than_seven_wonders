@@ -36,7 +36,7 @@ app.get('/reviews', async (req, res) => {
 
 //Create review Route --> POST
 app.post('/reviews', async (req, res) => {
-  let testReviewId = '6352beb79420b7470d7f0f10'
+  let reviewId = '6352beb79420b7470d7f0f10'
   let createdReview = Review.create(req.body)
   res.json(createdReview)
 })
