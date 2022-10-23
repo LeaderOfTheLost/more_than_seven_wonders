@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const PORT = process.env.PORT || 3001
 const db = require('./db')
 const { Wonder, Review } = require('./models')
@@ -7,6 +8,7 @@ const app = express()
 
 //middleware
 app.use(express.json())
+app.use(cors())
 
 app.get('/', (req, res) => {
   res.send({ msg: 'route hit' })
