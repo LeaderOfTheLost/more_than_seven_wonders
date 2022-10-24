@@ -68,6 +68,12 @@ Updating Places
 #### Credits:
 
 - [Globe img](https://www.pexels.com/photo/shallow-focus-photography-of-brown-globe-1169922/)
+- [Great Pyramid of Giza](https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza)
+- [Hanging Gardens of Babylon](https://en.wikipedia.org/wiki/Hanging_Gardens_of_Babylon)
+- [Statue of Zeus at Olympia](https://en.wikipedia.org/wiki/Statue_of_Zeus_at_Olympia)
+- [Temple of Artemis](https://en.wikipedia.org/wiki/Temple_of_Artemis)
+- [Mausoleum at Halicarnassus](https://en.wikipedia.org/wiki/Mausoleum_at_Halicarnassus)
+- [Colossus of Rhodes](https://en.wikipedia.org/wiki/Colossus_of_Rhodes) -[Lighthouse of Alexandria](https://en.wikipedia.org/wiki/Lighthouse_of_Alexandria)
 
 Docs:
 
