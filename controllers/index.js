@@ -25,7 +25,7 @@ const getWonderById = async (req, res) => {
     const { id } = req.params
     const wonder = await Wonder.findById(id)
     if (wonder) {
-      return res.status(200).json({ wonder })
+      return res.status(200).json(req.body)
     }
     return res.status(404).send('Wonder with the specified ID does not exist')
   } catch (error) {
