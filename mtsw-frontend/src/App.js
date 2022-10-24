@@ -26,13 +26,13 @@ function App() {
      
       let newWonder = await axios.post('http://localhost:3001/wonders', formState)
       .then((response) => {
-        return response
+        return response.data
       })
       .catch((error) => {
         console.log(error)
       })
       updateWonders([...wonders, newWonder.data])
-      setFormState({location: '', description: ''})
+      setFormState({location: '', description: '', img: ''})
     }
   return (
     <div className="App">
@@ -40,6 +40,7 @@ function App() {
       {wonders.map((wonder) => (
         <div key={wonder._id}>
           <h2>{wonder.location}</h2>
+          <img src={wonder.img}></img>
         </div>
       ))} 
       <h3>Add a Wonder</h3> 
@@ -48,6 +49,8 @@ function App() {
           <input id='location' value={formState.location} onChange={handleChange}/>
           <label htmlFor='description'>Description: </label>
           <input id='description' value={formState.description} onChange={handleChange}/>
+          <label htmlFor='img'>Image: </label>
+          <input id='img' value={formState.img} onChange={handleChange}/>
           <button type='submit'>Add Wonder</button>
         </form>
     </div>
