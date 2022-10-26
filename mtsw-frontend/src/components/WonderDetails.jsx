@@ -6,9 +6,7 @@ const WonderDetails = (props) => {
 
   const [reviews, updateReviews] = useState([])
   const [wonder, setWonder] = useState({})
-  const [review, setReview] = useState({})
   const [formState, setFormState] = useState({ title: '', entry: ''})
-
   let {id} = useParams()
 
   useEffect(() => {
@@ -19,16 +17,6 @@ const WonderDetails = (props) => {
     } 
     getWonder()
   }, [props.wonders, id])
-
-  useEffect(() => {
-    const getReview = async () => {
-      let response = await axios.get(`http://localhost:3001/reviews/${id}`)
-
-      console.log(response) 
-    } 
-    getReview()
-  }, [props.reviews, id])
-  
 
   const handleChange = (event) => {
     setFormState({...formState, [event.target.id]: event.target.value})
@@ -47,6 +35,7 @@ const WonderDetails = (props) => {
       setFormState({ title: '', entry: ''})
       props.toggleNewReviewAdded(!props.newReviewAdded)
   }
+  
 
   return (
     <div>
@@ -58,8 +47,14 @@ const WonderDetails = (props) => {
         <h2>Description</h2>
         <p>{wonder.description}</p>
       </div>
-        <h3>Reviews:</h3>
-        <h4>{reviews.title }</h4>
+      <div className='reviews'>
+        <h3 className='reviewHeader'>Reviews</h3>
+        {/* {props.wonder.map((review) => (
+          <div>
+            <h4>{review.title}</h4>
+          </div>
+        ))} */}
+      </div>
       <div>
         <h5>Add Review Below</h5>
       </div>
@@ -68,7 +63,7 @@ const WonderDetails = (props) => {
         <label htmlFor='title'>Title:</label>
         <input id='title' value={formState.title} onChange={handleChange} />
         <label htmlFor='entry'>Entry:</label>
-        <input id='entry' value={formState.entry} onChange={handleChange}/>
+        <input id='entry' value={formState.description} onChange={handleChange}/>
         <button type='submit'>Submit</button>
       </form>
       </div>
