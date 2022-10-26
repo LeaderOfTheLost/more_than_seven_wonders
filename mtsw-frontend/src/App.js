@@ -40,7 +40,7 @@ function App() {
           <Route path='/about' element={<About />}/>
           <Route path='/listings' element={<Listings wonders={wonders} />}/>
           <Route path='/listings/:id' element={<WonderDetails wonders={wonders} />}/>
-          <Route path='/new' element={<WonderForm newWonder={newWonder} handleChange={handleChange} addWonder={addWonder} />}/>
+          <Route path='/newWonder' element={<WonderForm newWonder={newWonder} handleChange={handleChange} addWonder={addWonder} />}/>
         </Routes>
       </main>
     </div>
