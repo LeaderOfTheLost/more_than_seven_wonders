@@ -8,11 +8,11 @@ const WonderDetails = (props) => {
   let {id} = useParams()
 
   useEffect(() => {
-    const wonderId = async () => {
-      let response = await axios.get(`http://localhost:3001/listings/${id}`)
-      setWonder(response.data.wonderId)
-    }
-    wonderId()
+    const wonderID = async () => {
+      let response = await axios.get(`http://localhost:3001/wonders/${id}`)
+      setWonder(response.data.wonderId) 
+    } 
+    wonderID()
   }, [props.wonders, id])
 
   return wonder ? (
@@ -22,11 +22,11 @@ const WonderDetails = (props) => {
         <img src={wonder.img}/>
       </div>
       <div>
-        <h3>Description</h3>
+        <h2>Description</h2>
         <p>{wonder.description}</p>
       </div>
       <div>
-        <h4>Want to add your own review? Fill out the form below!</h4>
+        <h5>Add Review Below</h5>
       </div>
     </div>
 ) : null;

@@ -14,7 +14,7 @@ const createWonder = async (req, res) => {
 }
 const getAllWonders = async (req, res) => {
   try {
-    const allWonders = await Wonder.find()
+    const allWonders = await Wonder.find({})
     return res.status(200).json({ allWonders })
   } catch (error) {
     return res.status(500).send(error.message)
@@ -25,7 +25,7 @@ const getWonderById = async (req, res) => {
     const { id } = req.params
     const wonderId = await Wonder.findById(id)
     if (wonderId) {
-      return res.status(200).json(wonderId)
+      return res.status(200).json({ wonderId }).populate('reviews')
     }
     return res.status(404).send('Wonder with the specified ID does not exist')
   } catch (error) {
