@@ -14,6 +14,11 @@ app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 app.use(logger('dev'))
 app.use('/', routes)
+app.use(express.static(`${__dirname}/mtsw-frontend/build`))
+
+app.get('/*', (req, res) => {
+  res.sendFile(`${__dirname}/mtsw-frontend/build/index.html`)
+})
 
 app.get('/', (req, res) => {
   res.send({ msg: 'route hit' })
