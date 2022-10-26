@@ -4,18 +4,19 @@ import axios from 'axios'
 
 const WonderDetails = (props) => {
 
-  const [wonder, setWonder] = useState('')
+  const [wonder, setWonder] = useState({})
   let {id} = useParams()
 
   useEffect(() => {
-    const wonderID = async () => {
+    const getWonder = async () => {
       let response = await axios.get(`http://localhost:3001/wonders/${id}`)
-      setWonder(response.data.wonderId) 
+
+      setWonder(response.data) 
     } 
-    wonderID()
+    getWonder()
   }, [props.wonders, id])
 
-  return wonder ? (
+  return (
     <div>
       <div>
         <h1>{wonder.location}</h1>
@@ -29,7 +30,7 @@ const WonderDetails = (props) => {
         <h5>Add Review Below</h5>
       </div>
     </div>
-) : null;
+)
 }
 
 export default WonderDetails
