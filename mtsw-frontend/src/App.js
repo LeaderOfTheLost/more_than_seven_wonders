@@ -10,15 +10,18 @@ import './App.css'
 
 function App() {
   const [wonders, setWonders] = useState([])
+  const [reviews, setReviews] = useState([])
   const [newWonderAdded, toggleNewWonderAdded] = useState(false)
+  const [newReviewAdded, toggleNewReviewAdded] = useState(false)
 
   useEffect(() => {
     const apiCall = async () => {
       let response = await axios.get('http://localhost:3001/wonders')
       setWonders(response.data.allWonders)
+      setReviews(response.data.allReviews)
     }
     apiCall()
-  }, [newWonderAdded])
+  }, [newWonderAdded, newReviewAdded])
 
   return (
     <div className="App">
@@ -40,7 +43,14 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route
             path="/wonders/:id"
-            element={<WonderDetails wonders={wonders} />}
+            element={
+              <WonderDetails
+                wonders={wonders}
+                reviews={reviews}
+                toggleNewReviewAdded={toggleNewReviewAdded}
+                newReviewAdded={newReviewAdded}
+              />
+            }
           />
         </Routes>
       </main>

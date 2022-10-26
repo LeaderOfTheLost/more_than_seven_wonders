@@ -21,17 +21,9 @@ const getAllWonders = async (req, res) => {
   }
 }
 const getWonderById = async (req, res) => {
-  // try {
   const { id } = req.params
   const wonder = await Wonder.findById(id).populate('reviews')
-
-  console.log('LINE 28: inside try block')
   res.status(200).json(wonder)
-
-  // } catch (error) {
-  //   console.log('LINE 34: inside catch block')
-  //   return res.status(500).send(error.message)
-  // }
 }
 const updateWonder = async (req, res) => {
   try {
@@ -82,16 +74,9 @@ const getAllReviews = async (req, res) => {
   }
 }
 const getReviewById = async (req, res) => {
-  try {
-    const { id } = req.params
-    const reviewId = await Review.findById(id)
-    if (reviewId) {
-      return res.status(200).json({ reviewId })
-    }
-    return res.status(404).send('Review with the specified ID does not exist')
-  } catch (error) {
-    return res.status(500).send(error.message)
-  }
+  const { id } = req.params
+  const review = await Review.findById(id)
+  res.status(200).json(review)
 }
 const updateReview = async (req, res) => {
   try {

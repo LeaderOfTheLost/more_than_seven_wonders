@@ -4,7 +4,11 @@ import axios from 'axios'
 
 const WonderDetails = (props) => {
 
+  const [reviews, updateReviews] = useState([])
   const [wonder, setWonder] = useState({})
+  const [review, setReview] = useState({})
+  const [formState, setFormState] = useState({ title: '', entry: ''})
+
   let {id} = useParams()
 
   useEffect(() => {
@@ -16,6 +20,34 @@ const WonderDetails = (props) => {
     getWonder()
   }, [props.wonders, id])
 
+  useEffect(() => {
+    const getReview = async () => {
+      let response = await axios.get(`http://localhost:3001/reviews/${id}`)
+
+      console.log(response) 
+    } 
+    getReview()
+  }, [props.reviews, id])
+  
+
+  const handleChange = (event) => {
+    setFormState({...formState, [event.target.id]: event.target.value})
+  }
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    let newReview = await axios.post('http://localhost:3001/reviews', formState)
+      .then((response) => {
+        return response
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+
+      updateReviews([...reviews, newReview.data])
+      setFormState({ title: '', entry: ''})
+      props.toggleNewReviewAdded(!props.newReviewAdded)
+  }
+
   return (
     <div>
       <div>
@@ -26,6 +58,8 @@ const WonderDetails = (props) => {
         <h2>Description</h2>
         <p>{wonder.description}</p>
       </div>
+        <h3>Reviews:</h3>
+        <h4>{reviews.title }</h4>
       <div>
         <h5>Add Review Below</h5>
       </div>
