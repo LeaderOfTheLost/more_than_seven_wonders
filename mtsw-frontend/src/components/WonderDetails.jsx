@@ -29,8 +29,17 @@ const WonderDetails = (props) => {
       <div>
         <h5>Add Review Below</h5>
       </div>
+      <div className='reviewForm'>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor='title'>Title:</label>
+        <input id='title' value={formState.title} onChange={handleChange} />
+        <label htmlFor='entry'>Entry:</label>
+        <input id='entry' value={formState.entry} onChange={handleChange}/>
+        <button type='submit'>Submit</button>
+      </form>
+      </div>
     </div>
-)
+  )
 }
 
 export default WonderDetails
