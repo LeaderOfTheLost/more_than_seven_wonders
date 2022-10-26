@@ -4,7 +4,7 @@ import axios from 'axios'
 
 const Home = (props) => {
   const [wonders, updateWonders] = useState([])
-  const [formState, setFormState] = useState({ location: "", description: "", img: ""})
+  const [formState, setFormState] = useState({ location: '', description: '', img: ''})
 
   let navigate = useNavigate()
 
@@ -27,7 +27,7 @@ const Home = (props) => {
       })
 
       updateWonders([...wonders, newWonder.data])
-      setFormState({ title: "", author: "", description: "", image: ""})
+      setFormState({ location: '', description: '', img: ''})
       props.toggleNewWonderAdded(!props.newWonderAdded)
   }
 
@@ -46,8 +46,8 @@ const Home = (props) => {
         <input id='location' value={formState.location} onChange={handleChange} />
         <label htmlFor='description'>Description:</label>
         <input id='description' value={formState.description} onChange={handleChange}/>
-        <label htmlFor='image'>Image URL:</label>
-        <input id='image' value={formState.img} onChange={handleChange}/>
+        <label htmlFor='img'>Image URL:</label>
+        <input id='img' value={formState.img} onChange={handleChange}/>
         <button type='submit'>Submit</button>
       </form>
     </div>
