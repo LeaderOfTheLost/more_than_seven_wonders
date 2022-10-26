@@ -3,10 +3,10 @@ const { Wonder, Review } = require('../models')
 //Wonder Controllers
 const createWonder = async (req, res) => {
   try {
-    const wonder = await new Wonder(req.body)
-    await wonder.save()
+    const newWonder = await new Wonder(req.body)
+    await newWonder.save()
     return res.status(201).json({
-      wonder
+      newWonder
     })
   } catch (error) {
     return res.status(500).json({ error: error.message })
@@ -14,8 +14,8 @@ const createWonder = async (req, res) => {
 }
 const getAllWonders = async (req, res) => {
   try {
-    const wonders = await Wonder.find()
-    return res.status(200).json({ wonders })
+    const allWonders = await Wonder.find()
+    return res.status(200).json({ allWonders })
   } catch (error) {
     return res.status(500).send(error.message)
   }
@@ -23,9 +23,9 @@ const getAllWonders = async (req, res) => {
 const getWonderById = async (req, res) => {
   try {
     const { id } = req.params
-    const wonder = await Wonder.findById(id)
-    if (wonder) {
-      return res.status(200).json(req.body)
+    const wonderId = await Wonder.findById(id)
+    if (wonderId) {
+      return res.status(200).json(wonderId)
     }
     return res.status(404).send('Wonder with the specified ID does not exist')
   } catch (error) {
@@ -34,10 +34,14 @@ const getWonderById = async (req, res) => {
 }
 const updateWonder = async (req, res) => {
   try {
-    const wonder = await Wonder.findByIdAndUpdate(req.params.id, req.body, {
-      new: true
-    })
-    res.status(200).json(wonder)
+    const updatedWonder = await Wonder.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      {
+        new: true
+      }
+    )
+    res.status(200).json(updatedWonder)
   } catch (error) {
     return res.status(500).send(error.message)
   }
@@ -46,8 +50,8 @@ const updateWonder = async (req, res) => {
 const deleteWonder = async (req, res) => {
   try {
     const { id } = req.params
-    const deleted = await Wonder.findByIdAndDelete(id)
-    if (deleted) {
+    const deletedWonder = await Wonder.findByIdAndDelete(id)
+    if (deletedWonder) {
       return res.status(200).send('Wonder deleted')
     }
     throw new Error('Wonder not found')
@@ -59,10 +63,10 @@ const deleteWonder = async (req, res) => {
 //Review Controllers
 const createReview = async (req, res) => {
   try {
-    const review = await new Review(req.body)
-    await review.save()
+    const newReview = await new Review(req.body)
+    await newReview.save()
     return res.status(201).json({
-      review
+      newReview
     })
   } catch (error) {
     return res.status(500).json({ error: error.message })
@@ -70,8 +74,8 @@ const createReview = async (req, res) => {
 }
 const getAllReviews = async (req, res) => {
   try {
-    const reviews = await Review.find()
-    return res.status(200).json({ reviews })
+    const allReviews = await Review.find()
+    return res.status(200).json({ allReviews })
   } catch (error) {
     return res.status(500).send(error.message)
   }
@@ -79,9 +83,9 @@ const getAllReviews = async (req, res) => {
 const getReviewById = async (req, res) => {
   try {
     const { id } = req.params
-    const review = await Review.findById(id)
-    if (review) {
-      return res.status(200).json({ review })
+    const reviewId = await Review.findById(id)
+    if (reviewId) {
+      return res.status(200).json({ reviewId })
     }
     return res.status(404).send('Review with the specified ID does not exist')
   } catch (error) {
@@ -90,10 +94,14 @@ const getReviewById = async (req, res) => {
 }
 const updateReview = async (req, res) => {
   try {
-    const review = await Review.findByIdAndUpdate(req.params.id, req.body, {
-      new: true
-    })
-    res.status(200).json(review)
+    const updatedReview = await Review.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      {
+        new: true
+      }
+    )
+    res.status(200).json(updatedReview)
   } catch (error) {
     return res.status(500).send(error.message)
   }
@@ -102,8 +110,8 @@ const updateReview = async (req, res) => {
 const deleteReview = async (req, res) => {
   try {
     const { id } = req.params
-    const deleted = await Review.findByIdAndDelete(id)
-    if (deleted) {
+    const deletedReview = await Review.findByIdAndDelete(id)
+    if (deletedReview) {
       return res.status(200).send('Review deleted')
     }
     throw new Error('Review not found')
