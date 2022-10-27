@@ -24,7 +24,6 @@ const WonderDetails = (props) => {
       })
       setReviews([...reviews, newReview.data.newReview])
       setFormState({ title: '', entry: ''})
-      // props.toggleNewReviewAdded(!props.newReviewAdded)
   }
 
   useEffect(() => {

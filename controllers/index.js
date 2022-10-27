@@ -1,6 +1,5 @@
 const { Wonder, Review } = require('../models')
 
-//Wonder Controllers
 const createWonder = async (req, res) => {
   try {
     const newWonder = await new Wonder(req.body)
@@ -12,6 +11,7 @@ const createWonder = async (req, res) => {
     return res.status(500).json({ error: error.message })
   }
 }
+
 const getAllWonders = async (req, res) => {
   try {
     const allWonders = await Wonder.find({})
@@ -20,11 +20,13 @@ const getAllWonders = async (req, res) => {
     return res.status(500).send(error.message)
   }
 }
+
 const getWonderById = async (req, res) => {
   const { id } = req.params
   const wonder = await Wonder.findById(id).populate('reviews')
-  return res.status(200).json(wonder)
+  res.status(200).json(wonder)
 }
+
 const updateWonder = async (req, res) => {
   try {
     const updatedWonder = await Wonder.findByIdAndUpdate(
@@ -53,7 +55,6 @@ const deleteWonder = async (req, res) => {
   }
 }
 
-//Review Controllers
 const createReview = async (req, res) => {
   try {
     const newReview = await new Review(req.body)
@@ -77,6 +78,7 @@ const getAllReviews = async (req, res) => {
     return res.status(500).send(error.message)
   }
 }
+
 const getReviewById = async (req, res) => {
   try {
     const { id } = req.params
@@ -84,19 +86,18 @@ const getReviewById = async (req, res) => {
     if (review) {
       return res.status(200).json({ review })
     }
-    return res.status(404).send('Review with the specified ID does not exists')
+    return res.status(404).send('Review with specific ID does not exists')
   } catch (error) {
     return res.status(500).send(error.message)
   }
 }
+
 const updateReview = async (req, res) => {
   try {
     const updatedReview = await Review.findByIdAndUpdate(
       req.params.id,
       req.body,
-      {
-        new: true
-      }
+      { new: true }
     )
     res.status(200).json(updatedReview)
   } catch (error) {
@@ -116,6 +117,7 @@ const deleteReview = async (req, res) => {
     return res.status(500).send(error.message)
   }
 }
+
 module.exports = {
   createWonder,
   getAllWonders,

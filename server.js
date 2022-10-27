@@ -1,31 +1,28 @@
 const express = require('express')
-const cors = require('cors')
-const logger = require('morgan')
-const db = require('./db')
 const routes = require('./routes')
+const db = require('./db')
+const logger = require('morgan')
+const cors = require('cors')
 
 const PORT = process.env.PORT || 3001
 
 const app = express()
 
-//middleware
 app.use(express.json())
-app.use(cors())
-app.use(express.urlencoded({ extended: true }))
 app.use(logger('dev'))
-app.use('/', routes)
+app.use(cors())
 app.use(express.static(`${__dirname}/mtsw-frontend/build`))
 
-app.get('/', (req, res) => {
-  res.send({ msg: 'route hit' })
-})
+app.use('/', routes)
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
+
+app.get('/', (req, res) => {
+  res.send({ msg: 'Rout hit' })
+})
 
 app.get('/*', (req, res) => {
   res.sendFile(`${__dirname}/mtsw-frontend/build/index.html`)
 })
 
-app.listen(PORT, () => {
-  console.log(`Express server listening on port: ${PORT}`)
-})
+app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
