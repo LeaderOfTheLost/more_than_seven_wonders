@@ -5,6 +5,8 @@ import axios from 'axios'
 
 const WonderDetails = (props) => {
 
+
+
   const [wonder, setWonder] = useState({})
   const [reviews, setReviews] = useState([])
   const [formState, setFormState] = useState({ title: '', entry: ''})
@@ -18,7 +20,7 @@ const WonderDetails = (props) => {
       setReviews(response.data.reviews)
     } 
     getWonder()
-  }, [id])
+  }, [reviews, id])
 
   
 
@@ -34,9 +36,8 @@ const WonderDetails = (props) => {
       .catch((error) => {
         console.log(error)
       })
-      setReviews([...reviews, newReview.data])
+      setReviews([...reviews, newReview.data.newReview])
       setFormState({ title: '', entry: ''})
-      props.toggleNewReviewAdded(!props.newReviewAdded)
   }
   
 
@@ -57,7 +58,7 @@ const WonderDetails = (props) => {
             <h4>{review.title}</h4>
             <p>{review.entry}</p>
           </div>
-        )): 'here is a review'}
+        )): ''}
       </div>
       <div>
         <h5>Add Review Below</h5>
