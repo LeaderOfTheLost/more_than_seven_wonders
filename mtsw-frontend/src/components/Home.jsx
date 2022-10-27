@@ -36,7 +36,7 @@ const Home = (props) => {
       {props.wonders.map((wonder) => (
         <div className='wonder' onClick={() => renderWonder(wonder)} key={wonder._id}>
           <h3>{wonder.location}</h3>
-          <img src={wonder.img}/>
+          <img src={wonder.img} alt='wonder not found'/>
        </div>
       ))}
 

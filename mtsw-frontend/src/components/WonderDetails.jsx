@@ -15,7 +15,7 @@ const WonderDetails = (props) => {
   }
   const handleSubmit = async (event) => {
     event.preventDefault()
-    let newReview = await axios.post('http://localhost:3001/reviews', formState)
+    let newReview = await axios.post(`http://localhost:3001/reviews/${id}`, formState)
       .then((response) => {
         return response
       })
@@ -24,6 +24,7 @@ const WonderDetails = (props) => {
       })
       setReviews([...reviews, newReview.data.newReview])
       setFormState({ title: '', entry: ''})
+      // props.toggleNewReviewAdded(!props.newReviewAdded)
   }
 
   useEffect(() => {

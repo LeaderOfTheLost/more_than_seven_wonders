@@ -3,7 +3,7 @@ const controllers = require('../controllers')
 const router = Router()
 
 //Wonder Routes
-router.post('/wonders', controllers.createWonder)
+router.post('/wonders/:id', controllers.createWonder)
 router.get('/wonders', controllers.getAllWonders)
 router.get('/wonders/:id', controllers.getWonderById)
 router.put('/wonders/:id', controllers.updateWonder)

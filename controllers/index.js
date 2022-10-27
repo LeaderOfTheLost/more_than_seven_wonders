@@ -23,7 +23,7 @@ const getAllWonders = async (req, res) => {
 const getWonderById = async (req, res) => {
   const { id } = req.params
   const wonder = await Wonder.findById(id).populate('reviews')
-  res.status(200).json(wonder)
+  return res.status(200).json(wonder)
 }
 const updateWonder = async (req, res) => {
   try {
@@ -78,9 +78,16 @@ const getAllReviews = async (req, res) => {
   }
 }
 const getReviewById = async (req, res) => {
-  const { id } = req.params
-  const review = await Review.findById(id)
-  res.status(200).json(review)
+  try {
+    const { id } = req.params
+    const review = await Review.findById(id)
+    if (review) {
+      return res.status(200).json({ review })
+    }
+    return res.status(404).send('Review with the specified ID does not exists')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
 }
 const updateReview = async (req, res) => {
   try {

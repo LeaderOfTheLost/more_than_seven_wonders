@@ -1,4 +1,5 @@
 import React from 'react'
+import './App.css'
 import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import axios from 'axios'
@@ -6,7 +7,6 @@ import Nav from './components/Nav'
 import Home from './components/Home'
 import About from './components/About'
 import WonderDetails from './components/WonderDetails'
-import './App.css'
 
 function App() {
   const [wonders, setWonders] = useState([])
