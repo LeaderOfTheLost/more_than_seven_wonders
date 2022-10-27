@@ -5,24 +5,10 @@ import axios from 'axios'
 
 const WonderDetails = (props) => {
 
-
-
   const [wonder, setWonder] = useState({})
   const [reviews, setReviews] = useState([])
   const [formState, setFormState] = useState({ title: '', entry: ''})
   let {id} = useParams()
-
-  useEffect(() => {
-    const getWonder = async () => {
-      let response = await axios.get(`http://localhost:3001/wonders/${id}`)
-
-      setWonder(response.data) 
-      setReviews(response.data.reviews)
-    } 
-    getWonder()
-  }, [reviews, id])
-
-  
 
   const handleChange = (event) => {
     setFormState({...formState, [event.target.id]: event.target.value})
@@ -39,6 +25,16 @@ const WonderDetails = (props) => {
       setReviews([...reviews, newReview.data.newReview])
       setFormState({ title: '', entry: ''})
   }
+
+  useEffect(() => {
+    const getWonder = async () => {
+      let response = await axios.get(`http://localhost:3001/wonders/${id}`)
+
+      setWonder(response.data) 
+      setReviews(response.data.reviews)
+    } 
+    getWonder()
+  }, [reviews, id])
   
 
   return (
