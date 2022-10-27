@@ -2,7 +2,7 @@ const { Router } = require('express')
 const controllers = require('../controllers')
 const router = Router()
 
-router.get('/', (req, res) => res.send('I AM ROOOOOOOT'))
+// router.get('/', (req, res) => res.send('I AM ROOOOOOOT'))
 
 //Wonder Routes
 router.post('/wonders', controllers.createWonder)
