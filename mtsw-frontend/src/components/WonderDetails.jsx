@@ -63,7 +63,7 @@ const WonderDetails = (props) => {
         <h3 className='reviewHeader'>Reviews</h3>
         {props.wonders.map((review) => (
           <div key={review._id}>
-            <h4>{review.title}</h4>
+            {/* <h4>{review.title}</h4> */}
           </div>
         ))}
       </div>
@@ -81,6 +81,7 @@ const WonderDetails = (props) => {
       </div>
     </div>
   )
+  console.log(review)
 }
 
 export default WonderDetails
