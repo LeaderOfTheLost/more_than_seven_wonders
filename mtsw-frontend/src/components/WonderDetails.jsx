@@ -4,9 +4,9 @@ import axios from 'axios'
 
 const WonderDetails = (props) => {
 
-  const [reviews, updateReviews] = useState([])
+  const [newReview, updateReviews] = useState([])
   const [wonder, setWonder] = useState({})
-  const [review, setReview] = useState({})
+  const [reviews, setReviews] = useState([])
   const [formState, setFormState] = useState({ title: '', entry: ''})
   let {id} = useParams()
 
@@ -15,18 +15,10 @@ const WonderDetails = (props) => {
       let response = await axios.get(`http://localhost:3001/wonders/${id}`)
 
       setWonder(response.data) 
+      setReviews(response.data.reviews)
     } 
     getWonder()
-  }, [props.wonders, id])
-
-  useEffect(() => {
-    const getReview = async () => {
-      let response = await axios.get(`http://localhost:3001/reviews/${id}`)
-
-      console.log(response) 
-    } 
-    getReview()
-  }, [props.reviews, id])
+  }, [id])
 
   
 
@@ -42,7 +34,7 @@ const WonderDetails = (props) => {
       .catch((error) => {
         console.log(error)
       })
-
+      wonder.reviews.push(newReview)
       updateReviews([...reviews, newReview.data])
       setFormState({ title: '', entry: ''})
       props.toggleNewReviewAdded(!props.newReviewAdded)
@@ -61,11 +53,12 @@ const WonderDetails = (props) => {
       </div>
       <div className='reviews'>
         <h3 className='reviewHeader'>Reviews</h3>
-        {props.wonders.map((review) => (
+        {reviews ? reviews.map((review) => (
           <div key={review._id}>
-            {/* <h4>{review.title}</h4> */}
+            <h4>{review.title}</h4>
+            <p>{review.entry}</p>
           </div>
-        ))}
+        )): ''}
       </div>
       <div>
         <h5>Add Review Below</h5>
@@ -81,7 +74,6 @@ const WonderDetails = (props) => {
       </div>
     </div>
   )
-  console.log(review)
 }
 
 export default WonderDetails
