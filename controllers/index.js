@@ -55,15 +55,11 @@ const deleteWonder = async (req, res) => {
 
 //Review Controllers
 const createReview = async (req, res) => {
-  try {
-    const newReview = await new Review(req.body)
-    await newReview.save()
-    return res.status(201).json({
-      newReview
-    })
-  } catch (error) {
-    return res.status(500).json({ error: error.message })
-  }
+  let newReview = await new Review.create(req.body)
+  await newReview.save()
+  let updatedWonder = await Wonder.findById(id)
+  updatedWonder.reviews.push(newReview._id)
+  await updatedWonder.save()
 }
 const getAllReviews = async (req, res) => {
   try {

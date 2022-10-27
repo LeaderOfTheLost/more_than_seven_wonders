@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
+
 const WonderDetails = (props) => {
 
-  const [newReview, updateReviews] = useState([])
   const [wonder, setWonder] = useState({})
   const [reviews, setReviews] = useState([])
   const [formState, setFormState] = useState({ title: '', entry: ''})
@@ -34,8 +34,7 @@ const WonderDetails = (props) => {
       .catch((error) => {
         console.log(error)
       })
-      wonder.reviews.push(newReview)
-      updateReviews([...reviews, newReview.data])
+      setReviews([...reviews, newReview.data])
       setFormState({ title: '', entry: ''})
       props.toggleNewReviewAdded(!props.newReviewAdded)
   }
@@ -54,11 +53,11 @@ const WonderDetails = (props) => {
       <div className='reviews'>
         <h3 className='reviewHeader'>Reviews</h3>
         {reviews ? reviews.map((review) => (
-          <div key={review._id}>
+          <div key={review.id}>
             <h4>{review.title}</h4>
             <p>{review.entry}</p>
           </div>
-        )): ''}
+        )): 'here is a review'}
       </div>
       <div>
         <h5>Add Review Below</h5>
