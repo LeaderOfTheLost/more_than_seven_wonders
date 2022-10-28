@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 
@@ -8,7 +8,12 @@ const WonderDetails = () => {
   const [wonder, setWonder] = useState({})
   const [reviews, setReviews] = useState([])
   const [formState, setFormState] = useState({ title: '', entry: '', location: '', description: '', img: ''})
+  let navigate = useNavigate()
+
   let {id} = useParams()
+  const navToWonders = () => {
+    navigate(`/`)
+  }
 
   const handleChange = (event) => {
     setFormState({...formState, [event.target.id]: event.target.value})
@@ -41,6 +46,7 @@ const WonderDetails = () => {
     event.preventDefault()
     let response = await axios.delete(`http://localhost:3001/wonders/${id}`, formState)
     setWonder(response)
+    navToWonders()
   } 
   const handleUpdate = async (event) => {
     event.preventDefault()
@@ -62,7 +68,7 @@ const WonderDetails = () => {
       <div className='reviews'>
         <h3 className='reviewHeader'>Reviews</h3>
         {reviews ? reviews.map((review) => (
-          <div key={review.id}>
+          <div key={review._id}>
             
             <h4>{review.title}</h4>
             <p>{review.entry}</p>

@@ -40,12 +40,11 @@ const Home = (props) => {
     <div className='wonders'>
       {props.wonders.map((wonder) => (
         <div className='wonder' onClick={() => renderWonder(wonder)} key={wonder._id}>
-          
+        
           <h3>{wonder.location}</h3>
           <img src={wonder.img} alt='wonder not found'/>
        </div>
       ))}
-
       <h3>Know a place that should be a Wonder of the World. Add it!</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor='location'>Location:</label>
