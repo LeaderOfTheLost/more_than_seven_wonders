@@ -24,7 +24,7 @@ const getAllWonders = async (req, res) => {
 const getWonderById = async (req, res) => {
   const { id } = req.params
   const wonder = await Wonder.findById(id).populate('reviews')
-  res.status(200).json(wonder)
+  return res.status(200).send(wonder)
 }
 
 const updateWonder = async (req, res) => {
@@ -45,7 +45,7 @@ const updateWonder = async (req, res) => {
 const deleteWonder = async (req, res) => {
   try {
     const { id } = req.params
-    const deletedWonder = await Wonder.findByIdAndDelete(id)
+    const deletedWonder = await Wonder.findByIdAndDelete(req.params.id)
     if (deletedWonder) {
       return res.status(200).send('Wonder deleted')
     }
@@ -109,11 +109,10 @@ const deleteReview = async (req, res) => {
   try {
     const { id } = req.params
     const deletedReview = await Review.findByIdAndDelete(id)
-    if (deletedReview) {
-      return res.status(200).send('Review deleted')
-    }
-    throw new Error('Review not found')
+
+    return res.status(200).send(deletedReview)
   } catch (error) {
+    console.log(' LINE 120: in delete catch')
     return res.status(500).send(error.message)
   }
 }

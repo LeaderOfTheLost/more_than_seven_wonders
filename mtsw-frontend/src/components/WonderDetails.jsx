@@ -35,6 +35,10 @@ const WonderDetails = (props) => {
     } 
     getWonder()
   }, [reviews, id])
+
+
+    
+ 
   
 
   return (
@@ -51,6 +55,7 @@ const WonderDetails = (props) => {
         <h3 className='reviewHeader'>Reviews</h3>
         {reviews ? reviews.map((review) => (
           <div key={review.id}>
+            
             <h4>{review.title}</h4>
             <p>{review.entry}</p>
           </div>
