@@ -1,20 +1,29 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
+// import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
 const Home = (props) => {
 
-  const [wonder, setWonder] = useState({})
+  
   const [wonders, updateWonders] = useState([])
   const [formState, setFormState] = useState({ location: '', description: '', img: ''})
 
   let navigate = useNavigate()
-  let {id} = useParams()
+  // let {id} = useParams()
 
   const renderWonder = (wonder) => {
     navigate(`wonders/${wonder._id}`)
   }
+
+  useEffect(() => {
+    const apiCall = async () => {
+      let response = await axios.get('http://localhost:3001/wonders')
+      updateWonders(response.data.allWonders)
+    }
+    apiCall()
+  }, [])
+
 
   const handleChange = (event) => {
     setFormState({...formState, [event.target.id]: event.target.value})
@@ -32,13 +41,12 @@ const Home = (props) => {
 
       updateWonders([...wonders, newWonder.data])
       setFormState({ location: '', description: '', img: ''})
-      props.toggleNewWonderAdded(!props.newWonderAdded)
+ 
   }
   
-
   return (
     <div className='wonders'>
-      {props.wonders.map((wonder) => (
+      {wonders.map((wonder) => (
         <div className='wonder' onClick={() => renderWonder(wonder)} key={wonder._id}>
         
           <h3>{wonder.location}</h3>

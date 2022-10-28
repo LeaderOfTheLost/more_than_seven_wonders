@@ -39,7 +39,7 @@ const WonderDetails = () => {
       setReviews(response.data.reviews)
     } 
     getWonder()
-  }, [reviews, id])
+  }, [])
 
 
   const handleDelete = async (event) => {
