@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
 const Home = (props) => {
+
+  const [wonder, setWonder] = useState({})
   const [wonders, updateWonders] = useState([])
   const [formState, setFormState] = useState({ location: '', description: '', img: ''})
 

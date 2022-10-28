@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
 
-const WonderDetails = (props) => {
+const WonderDetails = () => {
 
   const [wonder, setWonder] = useState({})
   const [reviews, setReviews] = useState([])
@@ -39,7 +39,7 @@ const WonderDetails = (props) => {
 
   const handleDelete = async (event) => {
     event.preventDefault()
-    let response = await axios.delete(`http://localhost:3001/wonders/${id}`)
+    let response = await axios.delete(`http://localhost:3001/wonders/${id}`, formState)
     setWonder(response)
 
     
