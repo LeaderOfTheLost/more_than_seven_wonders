@@ -7,7 +7,7 @@ const WonderDetails = () => {
 
   const [wonder, setWonder] = useState({})
   const [reviews, setReviews] = useState([])
-  const [formState, setFormState] = useState({ title: '', entry: ''})
+  const [formState, setFormState] = useState({ title: '', entry: '', location: '', description: '', img: ''})
   let {id} = useParams()
 
   const handleChange = (event) => {
@@ -41,8 +41,6 @@ const WonderDetails = () => {
     event.preventDefault()
     let response = await axios.delete(`http://localhost:3001/wonders/${id}`, formState)
     setWonder(response)
-
-    
   } 
   const handleUpdate = async (event) => {
     event.preventDefault()
@@ -50,8 +48,6 @@ const WonderDetails = () => {
     setWonder([wonder, response])
     setFormState({ location: '', description: '', img: ''})
   }
- 
-  
 
   return (
     <div>
@@ -85,17 +81,22 @@ const WonderDetails = () => {
         <button type='submit'>Submit</button>
       </form>
       </div>
+      <div>
+        <h5>Update Wonder Below</h5>
+      </div>
       <div className='updateForm'>
       <form onSubmit={handleUpdate}>
-        <label htmlFor='title'>Title:</label>
-        <input id='title' value={formState.title} onChange={handleChange} />
-        <label htmlFor='entry'>Entry:</label>
-        <input id='entry' value={formState.entry} onChange={handleChange}/>
-        <button type='submit'>Submit</button>
+        <label htmlFor='location'>Location:</label>
+        <input id='location' value={formState.location} onChange={handleChange} />
+        <label htmlFor='description'>Description:</label>
+        <input id='description' value={formState.description} onChange={handleChange}/>
+        <label htmlFor='img'>Image URL:</label>
+        <input id='img' value={formState.img} onChange={handleChange}/>
+        <button type='submit'>Update</button>
       </form>
       </div>
       <div>
-      <button className="deleteButton" onClick={handleDelete}>Delete</button>
+      <button className="deleteButton" onClick={handleDelete}>Delete Wonder</button>
       </div>
     </div>
   )

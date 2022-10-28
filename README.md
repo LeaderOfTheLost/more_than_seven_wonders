@@ -73,7 +73,8 @@ Updating Places
 - [Statue of Zeus at Olympia](https://en.wikipedia.org/wiki/Statue_of_Zeus_at_Olympia)
 - [Temple of Artemis](https://en.wikipedia.org/wiki/Temple_of_Artemis)
 - [Mausoleum at Halicarnassus](https://en.wikipedia.org/wiki/Mausoleum_at_Halicarnassus)
-- [Colossus of Rhodes](https://en.wikipedia.org/wiki/Colossus_of_Rhodes) -[Lighthouse of Alexandria](https://en.wikipedia.org/wiki/Lighthouse_of_Alexandria)
+- [Colossus of Rhodes](https://en.wikipedia.org/wiki/Colossus_of_Rhodes)
+- [Lighthouse of Alexandria](https://en.wikipedia.org/wiki/Lighthouse_of_Alexandria)
 
 Docs:
 
