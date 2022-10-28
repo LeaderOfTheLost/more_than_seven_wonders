@@ -37,7 +37,19 @@ const WonderDetails = (props) => {
   }, [reviews, id])
 
 
+  const handleDelete = async (event) => {
+    event.preventDefault()
+    let response = await axios.delete(`http://localhost:3001/wonders/${id}`)
+    setWonder(response)
+
     
+  } 
+  const handleUpdate = async (event) => {
+    event.preventDefault()
+    let response = await axios.put(`http://localhost:3001/wonders/${id}`, formState)
+    setWonder([wonder, response])
+    setFormState({ location: '', description: '', img: ''})
+  }
  
   
 
@@ -72,6 +84,18 @@ const WonderDetails = (props) => {
         <input id='entry' value={formState.entry} onChange={handleChange}/>
         <button type='submit'>Submit</button>
       </form>
+      </div>
+      <div className='updateForm'>
+      <form onSubmit={handleUpdate}>
+        <label htmlFor='title'>Title:</label>
+        <input id='title' value={formState.title} onChange={handleChange} />
+        <label htmlFor='entry'>Entry:</label>
+        <input id='entry' value={formState.entry} onChange={handleChange}/>
+        <button type='submit'>Submit</button>
+      </form>
+      </div>
+      <div>
+      <button className="deleteButton" onClick={handleDelete}>Delete</button>
       </div>
     </div>
   )
