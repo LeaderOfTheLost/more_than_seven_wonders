@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
@@ -6,28 +7,30 @@ import axios from 'axios'
 const WonderDetails = () => {
 
   const [wonder, setWonder] = useState({})
+  const [review, setReview] = useState({})
   const [reviews, setReviews] = useState([])
-  const [formState, setFormState] = useState({ title: '', entry: '', location: '', description: '', img: ''})
+  const [formState, setFormState] = useState({ titleR: '', entryR: '',title: '', entry: '', location: '', description: '', img: ''})
   let navigate = useNavigate()
 
   let {id} = useParams()
   const navToWonders = () => {
     navigate(`/`)
   }
+  
 
   const handleChange = (event) => {
     setFormState({...formState, [event.target.id]: event.target.value})
   }
   const handleSubmit = async (event) => {
     event.preventDefault()
-    let newReview = await axios.post(`http://localhost:3001/reviews/${id}`, formState)
+    let response = await axios.post(`http://localhost:3001/reviews/${id}`, formState)
       .then((response) => {
         return response
       })
       .catch((error) => {
         console.log(error)
       })
-      setReviews([...reviews, newReview.data.newReview])
+      setReviews([...reviews, response.data.newReview])
       setFormState({ title: '', entry: ''})
   }
 
@@ -39,7 +42,7 @@ const WonderDetails = () => {
       setReviews(response.data.reviews)
     } 
     getWonder()
-  }, [])
+  }, [id])
 
 
   const handleDelete = async (event) => {
@@ -48,11 +51,37 @@ const WonderDetails = () => {
     setWonder(response)
     navToWonders()
   } 
-  const handleUpdate = async (event) => {
+  const handleDeleteReview = async (event) => {
     event.preventDefault()
+    let reviewIndex = reviews.length - 1
+    let id = reviews[reviewIndex]._id
+    let response = await axios.delete(`http://localhost:3001/reviews/${id}`, formState)
+    console.log(response.data)
+    
+  } 
+  const handleUpdate = async () => {
     let response = await axios.put(`http://localhost:3001/wonders/${id}`, formState)
-    setWonder([wonder, response])
+    .then ((response) => {
+      return response
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+    setWonder([wonder, response.data])
     setFormState({ location: '', description: '', img: ''})
+  }
+  const handleUpdateReview = async () => {
+
+    let response = await axios.put(`http://localhost:3001/reviews/${id}`, formState)
+    .then ((response) => {
+      
+      return response
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+    setReview([review, response.data])
+    setFormState({ titleR: '', entryR: ''})
   }
 
   return (
@@ -69,7 +98,6 @@ const WonderDetails = () => {
         <h3 className='reviewHeader'>Reviews</h3>
         {reviews ? reviews.map((review) => (
           <div key={review._id}>
-            
             <h4>{review.title}</h4>
             <p>{review.entry}</p>
           </div>
@@ -81,9 +109,9 @@ const WonderDetails = () => {
       <div className='reviewForm'>
       <form onSubmit={handleSubmit}>
         <label htmlFor='title'>Title:</label>
-        <input id='title' value={formState.title} onChange={handleChange} />
+        <input type='text' id='title' value={formState.title} onChange={handleChange} />
         <label htmlFor='entry'>Entry:</label>
-        <input id='entry' value={formState.entry} onChange={handleChange}/>
+        <input type='text' id='entry' value={formState.entry} onChange={handleChange}/>
         <button type='submit'>Submit</button>
       </form>
       </div>
@@ -103,6 +131,21 @@ const WonderDetails = () => {
       </div>
       <div>
       <button className="deleteButton" onClick={handleDelete}>Delete Wonder</button>
+      </div>
+      <div>
+        <h5>Update Review Below</h5>
+      </div>
+      <div className='reviewUpdateForm'>
+      <form onSubmit={handleUpdateReview}>
+        <label htmlFor='titleR'>Title:</label>
+        <input type='text' id='titleR' value={formState.titleR} onChange={handleChange} />
+        <label htmlFor='entryR'>Entry:</label>
+        <input type='text' id='entryR' value={formState.entryR} onChange={handleChange}/>
+        <button type='submit'>Submit</button>
+      </form>
+      <div>
+      <button className="deleteButton" onClick={handleDeleteReview}>Delete Review</button>
+      </div>
       </div>
     </div>
   )

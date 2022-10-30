@@ -107,12 +107,15 @@ const updateReview = async (req, res) => {
 
 const deleteReview = async (req, res) => {
   try {
+    console.log(req.params)
+    console.log('in try LINE 111')
     const { id } = req.params
-    const deletedReview = await Review.findByIdAndDelete(id)
+    const deletedReview = await review.findByIdAndDelete(req.params.id)
 
-    return res.status(200).send(deletedReview)
+    console.log('in if in try LINE 114')
+    return res.status(200).send('Wonder deleted')
   } catch (error) {
-    console.log(' LINE 120: in delete catch')
+    console.log('catch inside LINE 118')
     return res.status(500).send(error.message)
   }
 }

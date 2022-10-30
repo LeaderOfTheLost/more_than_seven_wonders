@@ -1,13 +1,14 @@
+
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 // import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
-const Home = (props) => {
+const Home = () => {
 
   
   const [wonders, updateWonders] = useState([])
-  const [formState, setFormState] = useState({ location: '', description: '', img: ''})
+  const [formState, setFormState] = useState({ title: '', entry: '', location: '', description: '', img: ''})
 
   let navigate = useNavigate()
   // let {id} = useParams()
@@ -31,7 +32,7 @@ const Home = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    let newWonder = await axios.post('http://localhost:3001/wonders', formState)
+    let response = await axios.post('http://localhost:3001/wonders', formState)
       .then((response) => {
         return response
       })
@@ -39,22 +40,26 @@ const Home = (props) => {
         console.log(error)
       })
 
-      updateWonders([...wonders, newWonder.data])
+      updateWonders([...wonders, response.data.newWonder])
       setFormState({ location: '', description: '', img: ''})
- 
+      navigate('/')
   }
   
   return (
     <div className='wonders'>
       {wonders.map((wonder) => (
         <div className='wonder' onClick={() => renderWonder(wonder)} key={wonder._id}>
-        
+          
           <h3>{wonder.location}</h3>
           <img src={wonder.img} alt='wonder not found'/>
        </div>
       ))}
+      <div>
+      
       <h3>Know a place that should be a Wonder of the World. Add it!</h3>
-      <form onSubmit={handleSubmit}>
+      </div>
+      <div >
+      <form className='formSection' onSubmit={handleSubmit}>
         <label htmlFor='location'>Location:</label>
         <input id='location' value={formState.location} onChange={handleChange} />
         <label htmlFor='description'>Description:</label>
@@ -63,8 +68,10 @@ const Home = (props) => {
         <input id='img' value={formState.img} onChange={handleChange}/>
         <button type='submit'>Submit</button>
       </form>
+      </div>
     </div>
     )
+    
 }
 
 
