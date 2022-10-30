@@ -1,7 +1,6 @@
 
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-// import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
 const Home = () => {
@@ -11,7 +10,7 @@ const Home = () => {
   const [formState, setFormState] = useState({ title: '', entry: '', location: '', description: '', img: ''})
 
   let navigate = useNavigate()
-  // let {id} = useParams()
+
 
   const renderWonder = (wonder) => {
     navigate(`wonders/${wonder._id}`)

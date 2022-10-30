@@ -97,7 +97,9 @@ const updateReview = async (req, res) => {
     const updatedReview = await Review.findByIdAndUpdate(
       req.params.id,
       req.body,
-      { new: true }
+      {
+        new: true
+      }
     )
     res.status(200).json(updatedReview)
   } catch (error) {
@@ -107,15 +109,13 @@ const updateReview = async (req, res) => {
 
 const deleteReview = async (req, res) => {
   try {
-    console.log(req.params)
-    console.log('in try LINE 111')
     const { id } = req.params
-    const deletedReview = await review.findByIdAndDelete(req.params.id)
-
-    console.log('in if in try LINE 114')
-    return res.status(200).send('Wonder deleted')
+    const deletedReview = await Review.findByIdAndDelete(req.params.id)
+    if (deletedReview) {
+      return res.status(200).send('Review deleted')
+    }
+    throw new Error('Review not found')
   } catch (error) {
-    console.log('catch inside LINE 118')
     return res.status(500).send(error.message)
   }
 }
