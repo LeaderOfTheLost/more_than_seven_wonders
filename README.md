@@ -4,7 +4,7 @@
 
 ### Log of Wonders of the World by David Caldwell
 
-### 10/28/2022
+### 10/31/2022
 
 ---
 
@@ -34,7 +34,7 @@ Landing
 
 ---
 
-<img src="" width ="700px">
+<img src="./images/landing.png" width ="700px">
 
 ---
 
@@ -42,7 +42,7 @@ Places
 
 ---
 
-<img src="" width ="700px">
+<img src="./images/wonder.png" width ="700px">
 
 ---
 
@@ -50,7 +50,7 @@ Updating Places
 
 ---
 
-<img src="" width ="700px">
+<img src="./images/formSection.png" width ="700px">
 
 ---
 
