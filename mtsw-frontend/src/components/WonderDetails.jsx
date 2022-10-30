@@ -67,7 +67,7 @@ const WonderDetails = () => {
     <div>
       <div>
         <h1>{wonder.location}</h1>
-        <img src={wonder.img} alt='Wonder'/>
+        <img className='wonderPage' src={wonder.img} alt='Wonder'/>
       </div>
       <div>
         <h2>Description</h2>

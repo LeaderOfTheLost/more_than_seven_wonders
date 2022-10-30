@@ -45,6 +45,7 @@ const Home = () => {
   }
   
   return (
+    <div>
     <div className='wonders'>
       {wonders.map((wonder) => (
         <div className='wonder' onClick={() => renderWonder(wonder)} key={wonder._id}>
@@ -53,6 +54,7 @@ const Home = () => {
           <img src={wonder.img} alt='wonder not found'/>
        </div>
       ))}
+      </div>
       <div>
       
       <h3>Know a place that should be a Wonder of the World. Add it!</h3>
@@ -68,7 +70,7 @@ const Home = () => {
         <button type='submit'>Submit</button>
       </form>
       </div>
-    </div>
+      </div>
     )
     
 }
