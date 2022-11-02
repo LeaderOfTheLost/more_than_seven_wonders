@@ -45,7 +45,7 @@ const updateWonder = async (req, res) => {
 const deleteWonder = async (req, res) => {
   try {
     const { id } = req.params
-    const deletedWonder = await Wonder.findByIdAndDelete(req.params.id)
+    const deletedWonder = await Wonder.findByIdAndDelete(id)
     if (deletedWonder) {
       return res.status(200).send('Wonder deleted')
     }

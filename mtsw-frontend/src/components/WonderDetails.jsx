@@ -88,7 +88,7 @@ const WonderDetails = () => {
       <div className='reviewForm'>
       <form onSubmit={handleSubmit}>
         <label htmlFor='title'>Title:</label>
-        <input type='text' id='title' value={formState.title} onChange={handleChange} />
+        <input id='title' value={formState.title} onChange={handleChange} />
         <label htmlFor='entry'>Entry:</label>
         <input type='text' id='entry' value={formState.entry} onChange={handleChange}/>
         <button type='submit'>Submit</button>

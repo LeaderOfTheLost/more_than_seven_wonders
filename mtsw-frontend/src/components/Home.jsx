@@ -54,12 +54,7 @@ const Home = () => {
           <img src={wonder.img} alt='wonder not found'/>
        </div>
       ))}
-      </div>
-      <div>
-      
       <h3>Know a place that should be a Wonder of the World. Add it!</h3>
-      </div>
-      <div >
       <form className='formSection' onSubmit={handleSubmit}>
         <label htmlFor='location'>Location:</label>
         <input id='location' value={formState.location} onChange={handleChange} />
