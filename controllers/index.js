@@ -22,7 +22,8 @@ const getAllWonders = async (req, res) => {
 }
 
 const getWonderById = async (req, res) => {
-  const { id } = req.params
+  console.log(req.params)
+  const id = req.params.id
   const wonder = await Wonder.findById(id).populate('reviews')
   return res.status(200).send(wonder)
 }

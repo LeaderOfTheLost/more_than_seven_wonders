@@ -9,9 +9,10 @@ const WonderDetails = () => {
   const [wonder, setWonder] = useState({})
   const [reviews, setReviews] = useState([])
   const [formState, setFormState] = useState({ title: '', entry: '', location: '', description: '', img: ''})
-  let navigate = useNavigate()
 
+  let navigate = useNavigate()
   let {id} = useParams()
+
   const navToWonders = () => {
     navigate(`/`)
   }
@@ -22,7 +23,7 @@ const WonderDetails = () => {
   }
   const handleSubmit = async (event) => {
     event.preventDefault()
-    let response = await axios.post(`http://localhost:3001/reviews/${id}`, formState)
+    let response = await axios.post(`/reviews/${id}`, formState)
       .then((response) => {
         return response
       })
@@ -33,26 +34,9 @@ const WonderDetails = () => {
       setFormState({ title: '', entry: ''})
   }
 
-  useEffect(() => {
-    const getWonder = async () => {
-      let response = await axios.get(`http://localhost:3001/wonders/${id}`)
-
-      setWonder(response.data) 
-      setReviews(response.data.reviews)
-    } 
-    getWonder()
-  }, [id])
-
-
-  const handleDelete = async (event) => {
-    event.preventDefault()
-    let response = await axios.delete(`http://localhost:3001/wonders/${id}`, formState)
-    setWonder(response)
-    navToWonders()
-  } 
-  
   const handleUpdate = async () => {
-    let response = await axios.put(`http://localhost:3001/wonders/${id}`, formState)
+  
+    let response = await axios.put(`/wonders/${id}`, formState)
     .then ((response) => {
       return response
     })
@@ -63,6 +47,24 @@ const WonderDetails = () => {
     setFormState({ location: '', description: '', img: ''})
   }
 
+  useEffect(() => {
+    const getWonder = async () => {
+      let response = await axios.get(`/api/wonders/${id}`)
+
+      setWonder(response.data) 
+      setReviews(response.data.reviews)
+    } 
+    getWonder()
+  }, [])
+
+
+  const handleDelete = async (event) => {
+    event.preventDefault()
+    let response = await axios.delete(`/wonders/${id}`, formState)
+    setWonder(response)
+    navToWonders()
+  } 
+  
   return (
     <div>
       <div>

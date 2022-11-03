@@ -5,7 +5,7 @@ const router = Router()
 //Wonder Routes
 router.post('/wonders', controllers.createWonder)
 router.get('/wonders', controllers.getAllWonders)
-router.get('/wonders/:id', controllers.getWonderById)
+router.get('/api/wonders/:id', controllers.getWonderById)
 router.put('/wonders/:id', controllers.updateWonder)
 router.delete('/wonders/:id', controllers.deleteWonder)
 
