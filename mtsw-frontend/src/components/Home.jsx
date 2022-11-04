@@ -54,6 +54,7 @@ const Home = () => {
           <img src={wonder.img} alt='wonder not found'/>
        </div>
       ))}
+      </div>
       <div>
       <h3>Know a place that should be a Wonder of the World. Add it!</h3>
       <div>
@@ -68,7 +69,7 @@ const Home = () => {
       </form>
       </div>
       </div>
-      </div>
+      
       </div>
     )
     

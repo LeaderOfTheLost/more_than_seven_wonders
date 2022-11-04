@@ -8,7 +8,7 @@ import WonderDetails from './components/WonderDetails'
 function App() {
   return (
     <div className="App">
-      <header className="navbar">
+      <header className="navbarHead">
         <Nav />
       </header>
       <main>

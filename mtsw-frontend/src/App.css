@@ -1,26 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(36, 21, 13);
+  color: rgb(255, 226, 207);
+}
+
 .App {
   text-align: center;
+  font-family: 'Space Grotesk', sans-serif;
+}
+header{
   background-color: black;
-  color: white;
 }
 .links {
-  margin: 5%;
-  padding: 5%;
-  background-color: rgb(66, 32, 32);
+  margin: 2%;
+  padding: 2%;
+  background-color: rgb(57, 10, 10);
   display: flex;
   justify-content: space-around;
   align-items: center;
+  border-radius: 20%;
 }
 .link {
   margin: 5%;
   background-color: black;
-  border: 2px solid white;
-  color: white;
+  border: 2px solid rgb(255, 226, 207);
+  border-radius: 20%;
+  color: rgb(255, 226, 207);
   padding: 5px;
 }
 .navbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 90%;
 }
@@ -29,34 +41,59 @@
   font-size: 4rem;
 }
 img{
-  max-width:200px
+  max-width:200px;
+  border: 4px solid rgb(77, 29, 29);
 }
-.wonders{
+.wonders {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  border: 2px solid black;
+  align-items: center;
+  border-bottom: 1rem solid black;
 }
 .wonder {
-  background-color: rgb(81, 59, 59);
+  background-color: rgb(57, 10, 10);
   padding: 10%;
   margin: 10%;
   border-radius: 20%;
-  width: 200px;
+  width: 40%;
+  border: 5px outset burlywood;
+  box-shadow: 15px 15px 15px rgb(43, 16, 16);
 }
-.wonderPage {
-  background-color: rgb(81, 59, 59);
-  padding: 4%;
-  margin: 4%;
-  border-radius: 10%;
-  max-width: 20%;
+h3 {
+  font-size: 1.5rem;
 }
+
 label {
-  color: white;
+  color: rgb(255, 226, 207);
   margin: 2%;    
 }
 button {
   background-color: grey;
-  color: white;
+  color: rgb(255, 226, 207);
   margin: 3%;
 }
+.wonderPage {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
 
+.singleWonder {
+  background-color: rgb(57, 10, 10);
+  padding: 5%;
+  margin: 5%;
+  border-radius: 20%;
+  width: 20%;
+  border: 5px outset burlywood;
+  box-shadow: 15px 15px 15px rgb(43, 16, 16);
+}
+form {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.description,
+.reviews {
+  width: 80%;
+}

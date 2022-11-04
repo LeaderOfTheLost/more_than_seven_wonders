@@ -66,12 +66,12 @@ const WonderDetails = () => {
   } 
   
   return (
-    <div>
-      <div>
+    <div className='wonderPage'>
+      <div className='singleWonder'>
         <h1>{wonder.location}</h1>
-        <img className='wonderPage' src={wonder.img} alt='Wonder'/>
+        <img className='wonderPageImg' src={wonder.img} alt='Wonder'/>
       </div>
-      <div>
+      <div className='description'>
         <h2>Description</h2>
         <p>{wonder.description}</p>
       </div>
@@ -87,7 +87,7 @@ const WonderDetails = () => {
       <div>
         <h5>Add Review Below</h5>
       </div>
-      <div className='reviewForm'>
+      <div className='form'>
       <form onSubmit={handleSubmit}>
         <label htmlFor='title'>Title:</label>
         <input id='title' value={formState.title} onChange={handleChange} />
@@ -99,7 +99,7 @@ const WonderDetails = () => {
       <div>
         <h5>Update Wonder Below</h5>
       </div>
-      <div className='updateForm'>
+      <div className='form'>
       <form onSubmit={handleUpdate}>
         <label htmlFor='location'>Location:</label>
         <input id='location' value={formState.location} onChange={handleChange} />
