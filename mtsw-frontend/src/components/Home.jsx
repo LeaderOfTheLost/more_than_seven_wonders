@@ -18,7 +18,7 @@ const Home = () => {
 
   useEffect(() => {
     const apiCall = async () => {
-      let response = await axios.get('http://localhost:3001/wonders')
+      let response = await axios.get('/wonders')
       updateWonders(response.data.allWonders)
     }
     apiCall()
