@@ -1,0 +1,167 @@
+[{
+  "_id": {
+    "$oid": "6356a6992276a2dd95998568"
+  },
+  "location": "Colossus of Rhodes",
+  "description": "The Colossus of Rhodes (Ancient Greek: ὁ Κολοσσὸς Ῥόδιος, romanized: ho Kolossòs Rhódios Greek: Κολοσσός της Ρόδου, romanized: Kolossós tes Rhódou) was a statue of the Greek sun-god Helios, erected in the city of Rhodes, on the Greek island of the same name, by Chares of Lindos in 280 BC. One of the Seven Wonders of the Ancient World, it was constructed to celebrate the successful defence of Rhodes city against an attack by Demetrius Poliorcetes, who had besieged it for a year with a large army and navy. Image is an artist impression",
+  "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Colosse_de_Rhodes_%28Barclay%29.jpg/800px-Colosse_de_Rhodes_%28Barclay%29.jpg",
+  "reviews": [
+    {
+      "$oid": "635bdce8e6a7d0cada1b25b5"
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666623129887"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666964712667"
+    }
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "635bd8e750fe3c8f2b9b2b14"
+  },
+  "location": "Hanging Gardens of Babylon",
+  "description": "The Hanging Gardens of Babylon were one of the Seven Wonders of the Ancient World listed by Hellenic culture. They were described as a remarkable feat of engineering with an ascending series of tiered gardens containing a wide variety of trees, shrubs, and vines, resembling a large green mountain constructed of mud bricks. It was said to have been built in the ancient city of Babylon, near present-day Hillah, Babil province, in Iraq. The Hanging Gardens' name is derived from the Greek word κρεμαστός (kremastós, lit. 'overhanging'), which has a broader meaning than the modern English word 'hanging' and refers to trees being planted on a raised structure such as a terrace.",
+  "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Hanging_Gardens_of_Babylon.jpg/350px-Hanging_Gardens_of_Babylon.jpg",
+  "reviews": [
+    {
+      "$oid": "635bdcfbe6a7d0cada1b2770"
+    },
+    {
+      "$oid": "635c3701832baf6adddb6054"
+    },
+    {
+      "$oid": "6397338d9e62eff0e2059b42"
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666963687107"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670853517956"
+    }
+  },
+  "__v": 3
+},{
+  "_id": {
+    "$oid": "635bd91c50fe3c8f2b9b2b16"
+  },
+  "location": "Statue of Zeus at Olympia",
+  "description": "The Statue of Zeus at Olympia was a giant seated figure, about 12.4 m (41 ft) tall, made by the Greek sculptor Phidias around 435 BC at the sanctuary of Olympia, Greece, and erected in the Temple of Zeus there. Zeus is the sky and thunder god in ancient Greek religion, who rules as king of the gods of Mount Olympus.",
+  "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Le_Jupiter_Olympien_ou_l%27art_de_la_sculpture_antique.jpg/220px-Le_Jupiter_Olympien_ou_l%27art_de_la_sculpture_antique.jpg",
+  "reviews": [
+    {
+      "$oid": "635bdd19e6a7d0cada1b2a39"
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666963740023"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666964761216"
+    }
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "635bd97150fe3c8f2b9b2b18"
+  },
+  "location": "Temple of Artemis",
+  "description": "The Temple of Artemis or Artemision (Greek: Ἀρτεμίσιον; Turkish: Artemis Tapınağı), also known as the Temple of Diana, was a Greek temple dedicated to an ancient, local form of the goddess Artemis (identified with Diana, a Roman goddess). It was located in Ephesus (near the modern town of Selçuk in present-day Turkey). By 401 AD it had been ruined or destroyed. Only foundations and fragments of the last temple remain at the site.",
+  "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Templo-Artemisa-Efeso-2017.jpg/220px-Templo-Artemisa-Efeso-2017.jpg",
+  "reviews": [
+    {
+      "$oid": "635bdd2de6a7d0cada1b2c22"
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666963825120"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666964781110"
+    }
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "635bd9c950fe3c8f2b9b2b1a"
+  },
+  "location": "Mausoleum at Halicarnassus",
+  "description": "The Mausoleum at Halicarnassus or Tomb of Mausolus (Ancient Greek: Μαυσωλεῖον τῆς Ἁλικαρνασσοῦ; Turkish: Halikarnas Mozolesi) was a tomb built between 353 and 350 BC in Halicarnassus (present Bodrum, Turkey) for Mausolus, a native Anatolian from Caria and a satrap in the Achaemenid Empire, and his sister-wife Artemisia II of Caria. The structure was designed by the Greek architects Satyros and Pythius of Priene. Its elevated tomb structure is derived from the tombs of neighbouring Lycia, a territory Mausolus had invaded and annexed c. 360 BC, such as the Nereid Monument.",
+  "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Mausoleum_at_Halicarnassus_at_the_Bodrum_Museum_of_Underwater_Archaeology.jpg/250px-Mausoleum_at_Halicarnassus_at_the_Bodrum_Museum_of_Underwater_Archaeology.jpg",
+  "reviews": [
+    {
+      "$oid": "635bdd41e6a7d0cada1b2e1f"
+    },
+    {
+      "$oid": "635c11de5017dd1a3a59bf37"
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666963913795"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666978270524"
+    }
+  },
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "635bda0550fe3c8f2b9b2b1c"
+  },
+  "location": "Lighthouse of Alexandria",
+  "description": "The Lighthouse of Alexandria, sometimes called the Pharos of Alexandria (/ˈfɛərɒs/; Ancient Greek: ὁ Φάρος τῆς Ἀλεξανδρείας, contemporary Koine Greek pronunciation: [ho pʰá.ros tɛ̂ːs a.lek.sandrěːaːs]), was a lighthouse built by the Ptolemaic Kingdom of Ancient Egypt, during the reign of Ptolemy II Philadelphus (280–247 BC). It has been estimated to have been at least 100 metres (330 ft) in overall height.[3] One of the Seven Wonders of the Ancient World, for many centuries it was one of the tallest man-made structures in the world.",
+  "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Lighthouse_-_Thiersch.png/220px-Lighthouse_-_Thiersch.png",
+  "reviews": [
+    {
+      "$oid": "635bdd5ce6a7d0cada1b3089"
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666963973452"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666964828371"
+    }
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "635bf645e8b2256dcce136ab"
+  },
+  "location": "Great Pyramid of Giza",
+  "description": "The Great Pyramid of Giza is the largest Egyptian pyramid and the tomb of Fourth Dynasty pharaoh Khufu. Built in the early 26th century BC during a period of around 27 years, the pyramid is the oldest of the Seven Wonders of the Ancient World, and the only one to remain largely intact. As part of the Giza pyramid complex, it borders present-day Giza in Greater Cairo, Egypt.",
+  "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Kheops-Pyramid.jpg/300px-Kheops-Pyramid.jpg",
+  "reviews": [],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666971205431"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666971205431"
+    }
+  },
+  "__v": 0
+}]
